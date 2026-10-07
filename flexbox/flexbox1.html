@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flexbox1 Responsive</title>
+
+
+    <style>
+
+        /* reset margins, padding */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+
+
+        /* Main Container */
+
+        .flexcontainer {
+            width: 100%;
+            /* content not wider than 1400px */
+            max-width: 1400px;
+            /* Centers container horizontally */
+            margin: 0 auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* Row 1 Logo and Navigation */
+
+        .top-row {
+            display: flex;
+            /* Uses full available width */
+            width: 100%;
+            /* instead of using margin-right: 10px, use gap to create gap 10px */
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+
+        /* Logo */
+
+        .box1 {
+            background-color: darkgreen;
+            color: white;
+            width: 120px;
+            /* width will not go less than 120px */
+            min-width: 120px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            /* centers Logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        /* Navigation Box */
+
+        .box2 {
+            background-color: darkviolet;
+            color: white;
+            /* take the remaining available space */
+            flex: 1;
+            /* stops items overflow */
+            min-width: 0;
+            min-height: 100px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* Navigation */
+
+        nav {
+            /* use full width */
+            width: 100%;
+        }
+
+
+        nav ul {
+            /* removes bullets */
+            list-style: none;
+            /* removes browswer <ul> default spacing */
+            padding: 0;
+            margin: 0;
+            /* centers navigation horizontally */
+            display: flex;
+            justify-content: center;
+            /* centers vertically */
+            align-items: center;
+            /* if link doesn't fit move to next line */
+            flex-wrap: wrap;
+        }
+
+
+        nav li {
+            margin: 5px 15px;
+        }
+
+
+        nav a {
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            color: #e6e6e6;
+            /* removes underline */
+            text-decoration: none;
+            padding-bottom: 5px;
+            /* smooths hover effect */
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+
+        nav a:hover {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+
+
+        /* Row 2 Image | Main Content | Image */
+           
+        .middle-row1 {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: stretch;
+        }
+
+
+        /* Left Image */
+
+        .box3 {
+            background-color: darkslategrey;
+            width: 200px;
+            /* image width not to be less than 150px */
+            min-width: 150px;
+             /* image height not to be less than 220px */
+            min-height: 220px;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            /* allowed to shrink if not enough room useful for mobile */
+            flex-shrink: 1;
+            /* hides the parts that don't fit */
+            overflow: hidden;
+        }
+
+
+        /* Main Content */
+
+        .box4 {
+            background-color: darkslateblue;
+            color: white;
+            /* take up the remaining space */
+            flex: 1;
+            min-width: 0;
+            min-height: 220px;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+
+        /* Right Image */
+
+        .box5 {
+            background-color: darkmagenta;
+            width: 200px;
+            min-width: 150px;
+            min-height: 220px;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            flex-shrink: 1;
+            overflow: hidden;
+        }
+
+         /* Row 3 Image | Main Content | Image */
+           
+        .middle-row2 {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: stretch;
+        }
+
+
+
+         .box6 {
+            background-color: darkslategrey;
+            width: 200px;
+            /* image width not to be less than 150px */
+            min-width: 150px;
+             /* image height not to be less than 220px */
+            min-height: 220px;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            /* allowed to shrink if not enough room useful for mobile */
+            flex-shrink: 1;
+            /* hides the parts that don't fit */
+            overflow: hidden;
+        }
+
+
+        /* Main Content */
+
+        .box7 {
+            background-color: darkslateblue;
+            color: white;
+            /* take up the remaining space */
+            flex: 1;
+            min-width: 0;
+            min-height: 220px;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+
+        /* Right Image */
+
+        .box8 {
+            background-color: darkmagenta;
+            width: 200px;
+            min-width: 150px;
+            min-height: 220px;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            flex-shrink: 1;
+            overflow: hidden;
+        }
+
+
+
+
+        /* Images */
+
+        .img {
+             display: block;
+            /* image fills width of its box */
+            width: 100%;
+            /* image fills width of its box */
+            height: 100%;
+            /* fill box while keeping aspect ratio, image doesn't distort */
+            object-fit: cover;
+        }
+
+
+        /* Row 3 Copyright */
+    
+        .bottom-row {
+            display: flex;
+            width: 100%;
+        }
+
+
+        .box9 {
+            background-color: brown;
+            color: white;
+            /* use complete width */
+            width: 100%;
+            min-height: 60px;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        /* Responsive Design Tablet */
+
+        @media (max-width: 800px) {
+
+            .box1 {
+                /* logo becomes slightly smaller */
+                width: 100px;
+                min-width: 100px;
+            }
+
+
+            .box3, .box5, .box7, .box8 {
+                /* 4 images become smaller */
+                width: 150px;
+                min-width: 120px;
+            }
+
+
+            .box4, .box6 {
+                /* main content slightly less internal spacing */
+                padding: 15px;
+            }
+
+
+            nav li {
+                margin: 5px 8px;
+            }
+
+        }
+
+
+        /* Responsive Design Mobile */
+
+        @media (max-width: 600px) {
+
+            /* Top Row */
+
+            .top-row {
+                /* displays vertically */
+                flex-direction: column;
+            }
+
+
+            .box1 {
+                /* logo becomes full width */
+                width: 100%;
+                min-width: 0;
+                height: 70px;
+            }
+
+
+            .box2 {
+                /* navigation becomes full width */
+                width: 100%;
+                min-height: 100px;
+            }
+
+
+            nav ul {
+                /* nav links become vertical */
+                flex-direction: column;
+            }
+
+
+            nav li {
+                margin: 6px 0;
+            }
+
+
+            /* Middle Row */
+
+            .middle-row1, .middle-row2 {
+                /* displays middle rows vertically */
+                flex-direction: column;
+            }
+
+            /* each box is displayed full width */
+            .box3, .box4, .box5, .box6, .box7, .box8 {
+                width: 100%;
+                min-width: 0;
+            }
+
+            /* images become 200px high on mobile */
+            .box3, .box5, .box6, .box8 {
+                height: 200px;
+                min-height: 200px;
+            }
+
+            /* main content gets enough vertical height for text */
+            .box4, .box7 {
+                min-height: 250px;
+            }
+
+
+            /* Copyright */
+
+            .box9 {
+                min-height: 60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="flexcontainer">
+
+
+        <!-- ROW 1  LOGO | NAVIGATION -->
+
+        <section class="top-row">
+
+            <!-- Logo -->
+
+            <div class="box1"> LOGO</div>
+
+            <!-- Navigation -->
+
+            <div class="box2">
+
+                <nav>
+                  <ul>
+                     <li> <a href="about.html">ABOUT </a></li>
+                     <li><a href="skills.html">SKILLS</a></li>
+                     <li><a href="project.html">PROJECTS</a></li>
+                     <li> <a href="contact.html">CONTACT</a></li>
+                  </ul>
+                </nav>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Row 2 IMAGE | MAIN CONTENT | IMAGE -->
+            
+
+        <section class="middle-row1">
+
+            <div class="box3">
+
+                <img
+                    class="img"
+                    src="images/gallery4.jpg"
+                    alt="Three boats anchored on a beach"
+                    title="Blue sea by David Smith"
+                >
+
+            </div>
+
+
+
+            <div class="box4">
+
+                <h2>Main Heading</h2>
+                <h4>Sub Heading</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Consectetur, dolor?
+                    Praesentium dignissimos deserunt quasi
+                    id obcaecati, dolor tempore voluptate
+                    eaque aliquam odit voluptatum error earum.
+                    Architecto, eligendi qui ut necessitatibus
+                    mollitia id error, dolore nulla nobis
+                    temporibus optio.
+                </p>
+
+            </div>
+
+
+
+            <div class="box5">
+
+                <img
+                    class="img"
+                    src="images/gallery5.jpg"
+                    alt="Three boats anchored on a beach"
+                    title="Blue sea by David Smith"
+                >
+
+            </div>
+
+            </section>
+
+
+             <!-- Row 3 IMAGE | MAIN CONTENT | IMAGE -->
+            
+
+        <section class="middle-row2">
+
+            <div class="box6">
+
+                <img
+                    class="img"
+                    src="images/gallery7.jpg"
+                    alt="Three boats anchored on a beach"
+                    title="Blue sea by David Smith"
+                >
+
+            </div>
+
+
+
+            <div class="box7">
+
+                <h2>Main Heading</h2>
+                <h4>Sub Heading</h4>
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Consectetur, dolor?
+                    Praesentium dignissimos deserunt quasi
+                    id obcaecati, dolor tempore voluptate
+                    eaque aliquam odit voluptatum error earum.
+                    Architecto, eligendi qui ut necessitatibus
+                    mollitia id error, dolore nulla nobis
+                    temporibus optio.
+                </p>
+
+            </div>
+
+
+
+            <div class="box8">
+
+                <img
+                    class="img"
+                    src="images/gallery8.jpg"
+                    alt="Three boats anchored on a beach"
+                    title="Blue sea by David Smith"
+                >
+
+            </div>    
+
+        </section>
+
+
+
+        <!-- Row 4 Copyright -->
+            
+
+        <section class="bottom-row">
+
+            <footer class="box9">
+                <p> @Copyright 2026.All Rights Reserved.</p>
+            </footer>
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+</html>
+
